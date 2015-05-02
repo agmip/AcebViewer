@@ -1,0 +1,57 @@
+<BoxPane
+    xmlns:bxml="http://pivot.apache.org/bxml"
+    xmlns:collections="org.apache.pivot.collections"
+    xmlns="org.apache.pivot.wtk">
+    <Border>
+        <ScrollPane maximumHeight="500" horizontalScrollBarPolicy="fill_to_capacity" verticalScrollBarPolicy="fill_to_capacity">
+            <TableView bxml:id="tableView" styles="{showHorizontalGridLines:false}">
+                
+                <columns>
+                    <TableView.Column name="exname" headerData="EXNAME" minimumWidth="30"/>
+                    <TableView.Column name="trt_name" headerData="TRT_NAME" minimumWidth="30"/>
+                    <TableView.Column name="institution" headerData="INSTITUTION" minimumWidth="30"/>
+                    <TableView.Column name="wst_id" headerData="WST_ID" minimumWidth="30"/>
+                    <TableView.Column name="tavp" headerData="TAVP" minimumWidth="30"/>
+                    <TableView.Column name="prcp" headerData="PRCP" minimumWidth="30"/>
+                    <TableView.Column name="soil_id" headerData="SOIL_ID" minimumWidth="30"/>
+                    <TableView.Column name="sltx_text" headerData="SLTX_text" minimumWidth="30"/>
+                    <TableView.Column name="data_source" headerData="DATA_SOURCE" minimumWidth="30"/>
+                    <TableView.Column name="agmip_rating" headerData="AGMIP_RATING" minimumWidth="30"/>
+                    <TableView.Column name="fl_lat" headerData="FL_LAT" minimumWidth="30"/>
+                    <TableView.Column name="fl_long" headerData="FL_LONG" minimumWidth="30"/>
+                    <TableView.Column name="flele" headerData="FLELE" minimumWidth="30"/>
+                    <TableView.Column name="local_name" headerData="LOCAL_NAME" minimumWidth="30"/>
+                    <TableView.Column name="main_factor" headerData="MAIN_FACTOR" minimumWidth="30"/>
+                    <TableView.Column name="crid_text" headerData="CRID_text" minimumWidth="30"/>
+                    <TableView.Column name="cul_name" headerData="CUL_NAME" minimumWidth="30"/>
+                    <TableView.Column name="pdate" headerData="PDATE" minimumWidth="30"/>
+                    <TableView.Column name="adat" headerData="ADAT" minimumWidth="30"/>
+                    <TableView.Column name="mdat" headerData="MDAT" minimumWidth="30"/>
+                    <TableView.Column name="hdate" headerData="HDATE" minimumWidth="30"/>
+                    <TableView.Column name="hwah" headerData="HWAH" minimumWidth="30"/>
+                    <TableView.Column name="cwah" headerData="CWAH" minimumWidth="30"/>
+                    <TableView.Column name="ir_num" headerData="IR#C" minimumWidth="30"/>
+                    <TableView.Column name="ir_tot" headerData="IR_TOT" minimumWidth="30"/>
+                    <TableView.Column name="fe_num" headerData="FE_#" minimumWidth="30"/>
+                    <TableView.Column name="fen_tot" headerData="FEN_TOT" minimumWidth="30"/>
+                    <TableView.Column name="fep_tot" headerData="FEP_TOT" minimumWidth="30"/>
+                    <TableView.Column name="fek_tot" headerData="FEK_TOT" minimumWidth="30"/>
+                    <TableView.Column name="om_tot" headerData="OM_TOT" minimumWidth="30"/>
+                    <TableView.Column name="obs_end_of_season" headerData="OBS_END_OF_SEASON" minimumWidth="30"/>
+                    <TableView.Column name="obs_time_series_data" headerData="OBS_TIME_SERIES_DATA" minimumWidth="30"/>
+                </columns>
+                
+                <tableViewSortListeners>
+                    function sortChanged(tableView) {
+                    var tableData = tableView.getTableData();
+                    tableData.setComparator(new org.apache.pivot.wtk.content.TableViewRowComparator(tableView));
+                    }
+                </tableViewSortListeners>
+            </TableView>
+ 
+            <columnHeader>
+                <TableViewHeader tableView="$tableView" sortMode="multi_column"/>
+            </columnHeader>
+        </ScrollPane>
+    </Border>
+</BoxPane>

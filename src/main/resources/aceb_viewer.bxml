@@ -1,0 +1,73 @@
+<acebviewer:AcebViewerWindow title="AgMIP ACEB Viewer" maximized="true"
+                             xmlns:bxml="http://pivot.apache.org/bxml"
+                             xmlns:content="org.apache.pivot.wtk.content"
+                             xmlns:menus="org.apache.pivot.wtk.menus"
+                             xmlns:acebviewer="org.agmip.ui.acebviewer"
+                             xmlns:collections="org.apache.pivot.collections"
+                             xmlns="org.apache.pivot.wtk">
+
+    <actionMappings>
+        <Window.ActionMapping action="fileQuit" keyStroke="CMD-Q" />
+    </actionMappings>
+
+    <TablePane styles="{horizontalSpacing:6, verticalSpacing:6, showVerticalGridLines:true, padding:2}">
+        <columns>
+            <TablePane.Column width="1*" />
+        </columns>
+
+        <TablePane.Row height="-1">
+            <Border styles="{backgroundColor: '#EDEDED'}">
+                <MenuBar>
+                    <MenuBar.Item buttonData="File">
+                        <Menu>
+                            <Menu.Section>
+                                <Menu.Item action="fileQuit">
+                                    <buttonData>
+                                        <content:MenuItemData text="Quit" keyboardShortcut="CMD-Q" />
+                                    </buttonData>
+                                </Menu.Item>
+                            </Menu.Section>
+                        </Menu>
+                    </MenuBar.Item>
+                </MenuBar>
+            </Border>
+        </TablePane.Row>
+
+        <TablePane.Row height="1*">
+            <ScrollPane horizontalScrollBarPolicy="fill_to_capacity" verticalScrollBarPolicy="fill_to_capacity">
+                <TabPane styles="{padding:6}">
+                    <BoxPane orientation="vertical">
+                        <TabPane.tabData>
+                            <content:ButtonData text="DataView"/>
+                        </TabPane.tabData>
+                        <BoxPane orientation="vertical" styles="{padding:{bottom:16, left: 6}}">
+                            <Border styles="{padding:6}">
+                                <BoxPane orientation="vertical">
+                                    <BoxPane orientation="horizontal">
+                                        <Label text="ACEB File:" styles="{font:{bold:true}}"/>
+                                        <ImageView image="/info_s.jpg" tooltipDelay="200" tooltipText="Browse your local file system and load the ACEB file to view" />
+                                    </BoxPane>
+                                    <BoxPane orientation="horizontal">
+                                        <TextInput bxml:id="acebText" preferredWidth="400" editable="false"/>
+                                        <PushButton bxml:id="browseAcebButton" buttonData="Browse"/>
+                                    </BoxPane>
+                                </BoxPane>
+                            </Border>
+                            <BoxPane orientation="horizontal">
+                                <Border bxml:id="dataList" title="Data List:" styles="{padding:6}" minimumHeight="100" minimumWidth="200">
+                                </Border>
+                                <Border bxml:id="dataDetail" title="Data Detail:" styles="{padding:6}" minimumHeight="100" minimumWidth="300">
+                                </Border>
+                            </BoxPane>
+                        </BoxPane>
+                    </BoxPane>
+                </TabPane>
+            </ScrollPane>
+        </TablePane.Row>
+        <TablePane.Row height="-1">
+            <Border styles="{padding:2, color: '#777777'}">
+                <Label bxml:id="txtVersion" />
+            </Border>
+        </TablePane.Row>
+    </TablePane>
+</acebviewer:AcebViewerWindow>

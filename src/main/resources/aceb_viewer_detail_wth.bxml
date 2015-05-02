@@ -1,0 +1,35 @@
+<BoxPane
+    xmlns:bxml="http://pivot.apache.org/bxml"
+    xmlns:collections="org.apache.pivot.collections"
+    xmlns="org.apache.pivot.wtk">
+    <Border>
+        <BoxPane orientation="vertical" styles="{padding:6}">
+            <Expander bxml:id="metaData" title="Site Meta Info" styles="{padding:6}">
+                <ScrollPane horizontalScrollBarPolicy="fill" verticalScrollBarPolicy="fill">
+                    <TableView bxml:id="metaDataView">
+                        <columns>
+                            <TableView.Column name="var" width="-1" headerData="Variable" minimumWidth="30"/>
+                            <TableView.Column name="val" width="-1" headerData="Value" minimumWidth="30"/>
+                        </columns>
+                    </TableView>
+                </ScrollPane>
+            </Expander>
+            <Expander bxml:id="dailyWeather" title="Daily Weather Data" expanded="false" styles="{padding:6}">
+                <ScrollPane horizontalScrollBarPolicy="fill" verticalScrollBarPolicy="fill" maximumHeight="450">
+                    <TableView bxml:id="dailyWeatherView">
+                        <tableViewSortListeners>
+                            function sortChanged(tableView) {
+                            var tableData = tableView.getTableData();
+                            tableData.setComparator(new org.apache.pivot.wtk.content.TableViewRowComparator(tableView));
+                            }
+                        </tableViewSortListeners>
+                    </TableView>
+ 
+                    <columnHeader>
+                        <TableViewHeader tableView="$dailyWeatherView" sortMode="multi_column"/>
+                    </columnHeader>
+                </ScrollPane>
+            </Expander>
+        </BoxPane>
+    </Border>
+</BoxPane>

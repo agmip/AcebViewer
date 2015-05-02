@@ -1,0 +1,30 @@
+<BoxPane
+    xmlns:bxml="http://pivot.apache.org/bxml"
+    xmlns:collections="org.apache.pivot.collections"
+    xmlns="org.apache.pivot.wtk">
+    <Border>
+        <ScrollPane maximumHeight="500" horizontalScrollBarPolicy="fill_to_capacity" verticalScrollBarPolicy="fill_to_capacity">
+            <TableView bxml:id="tableView" styles="{showHorizontalGridLines:false}">
+                
+                <columns>
+                    <TableView.Column name="soil_id" headerData="SOIL_ID" minimumWidth="30"/>
+                    <TableView.Column name="sl_source" headerData="SL_SOURCE" minimumWidth="30"/>
+                    <TableView.Column name="salb" headerData="SALB" minimumWidth="30"/>
+                    <TableView.Column name="sldr" headerData="SLDR" minimumWidth="30"/>
+                    <TableView.Column name="slro" headerData="SLRO" minimumWidth="30"/>
+                </columns>
+                
+                <tableViewSortListeners>
+                    function sortChanged(tableView) {
+                    var tableData = tableView.getTableData();
+                    tableData.setComparator(new org.apache.pivot.wtk.content.TableViewRowComparator(tableView));
+                    }
+                </tableViewSortListeners>
+            </TableView>
+ 
+            <columnHeader>
+                <TableViewHeader tableView="$tableView" sortMode="multi_column"/>
+            </columnHeader>
+        </ScrollPane>
+    </Border>
+</BoxPane>

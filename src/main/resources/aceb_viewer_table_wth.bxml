@@ -1,0 +1,32 @@
+<BoxPane
+    xmlns:bxml="http://pivot.apache.org/bxml"
+    xmlns:collections="org.apache.pivot.collections"
+    xmlns="org.apache.pivot.wtk">
+    <Border>
+        <ScrollPane maximumHeight="500" horizontalScrollBarPolicy="fill_to_capacity" verticalScrollBarPolicy="fill_to_capacity">
+            <TableView bxml:id="tableView" styles="{showHorizontalGridLines:false}">
+                
+                <columns>
+                    <TableView.Column name="wst_id" headerData="WST_ID" minimumWidth="30"/>
+                    <TableView.Column name="wst_lat" headerData="WST_LAT" minimumWidth="30"/>
+                    <TableView.Column name="wst_long" headerData="WST_LONG" minimumWidth="30"/>
+                    <TableView.Column name="wst_elev" headerData="WST_ELEV" minimumWidth="30"/>
+                    <TableView.Column name="wst_notes" headerData="wst_notes" minimumWidth="30"/>
+                    <TableView.Column name="clim_id" headerData="CLIM_ID" minimumWidth="30"/>
+                    <TableView.Column name="co2y" headerData="CO2Y" minimumWidth="30"/>
+                </columns>
+                
+                <tableViewSortListeners>
+                    function sortChanged(tableView) {
+                    var tableData = tableView.getTableData();
+                    tableData.setComparator(new org.apache.pivot.wtk.content.TableViewRowComparator(tableView));
+                    }
+                </tableViewSortListeners>
+            </TableView>
+ 
+            <columnHeader>
+                <TableViewHeader tableView="$tableView" sortMode="multi_column"/>
+            </columnHeader>
+        </ScrollPane>
+    </Border>
+</BoxPane>
