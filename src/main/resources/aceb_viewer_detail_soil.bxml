@@ -4,7 +4,10 @@
     xmlns="org.apache.pivot.wtk">
     <Border>
         <BoxPane orientation="vertical" styles="{padding:6}">
-            <Expander bxml:id="metaData" title="Site Meta Info" styles="{padding:6}">
+            <Rollup bxml:id="metaData" styles="{padding:6}" expanded="true">
+                <heading>
+                    <Label text="Site Meta Info" styles="{font:{bold:true}, color:13}"/>
+                </heading>
                 <ScrollPane horizontalScrollBarPolicy="fill" verticalScrollBarPolicy="fill">
                     <TableView bxml:id="metaDataView">
                         <columns>
@@ -13,8 +16,12 @@
                         </columns>
                     </TableView>
                 </ScrollPane>
-            </Expander>
-            <Expander bxml:id="soilLayer" title="Soil Layer Data" expanded="false" styles="{padding:6}">
+            </Rollup>
+            <Separator preferredWidth="600"/>
+            <Rollup bxml:id="soilLayer" expanded="false" styles="{padding:6}">
+                <heading>
+                    <Label text="Soil Layer Data" styles="{font:{bold:true}, color:13}"/>
+                </heading>
                 <ScrollPane horizontalScrollBarPolicy="fill" verticalScrollBarPolicy="fill" maximumHeight="450">
                     <TableView bxml:id="soilLayerView">
                         <tableViewSortListeners>
@@ -29,7 +36,7 @@
                         <TableViewHeader tableView="$soilLayerView" sortMode="multi_column"/>
                     </columnHeader>
                 </ScrollPane>
-            </Expander>
+            </Rollup>
         </BoxPane>
     </Border>
 </BoxPane>

@@ -4,7 +4,7 @@
     xmlns="org.apache.pivot.wtk">
     <Border>
         <BoxPane orientation="vertical" styles="{padding:6}">
-            <Expander bxml:id="metaData" title="Site Meta Info" styles="{padding:6}">
+            <Rollup bxml:id="metaData" styles="{padding:6}" expanded="true">
                 <ScrollPane horizontalScrollBarPolicy="fill" verticalScrollBarPolicy="fill">
                     <TableView bxml:id="metaDataView">
                         <columns>
@@ -13,8 +13,12 @@
                         </columns>
                     </TableView>
                 </ScrollPane>
-            </Expander>
-            <Expander bxml:id="initialCondition" title="Initial Condition Data" expanded="false" styles="{padding:6}">
+            </Rollup>
+            <Separator preferredWidth="600"/>
+            <Rollup bxml:id="initialCondition" expanded="false" styles="{padding:6}">
+                <heading>
+                    <Label text="Initial Condition Data" styles="{font:{bold:true}, color:13}"/>
+                </heading>
                 <BoxPane orientation="vertical">
                     <ScrollPane horizontalScrollBarPolicy="fill" verticalScrollBarPolicy="fill">
                         <TableView bxml:id="icMetaDataView">
@@ -41,8 +45,12 @@
                         </ScrollPane>
                     </Border>
                 </BoxPane>
-            </Expander>
-            <Expander bxml:id="management" title="Management Data" expanded="false" styles="{padding:6}">
+            </Rollup>
+            <Separator preferredWidth="600"/>
+            <Rollup bxml:id="management" expanded="false" styles="{padding:6}">
+                <heading>
+                    <Label text="Management Data" styles="{font:{bold:true}, color:13}"/>
+                </heading>
                 <ScrollPane horizontalScrollBarPolicy="fill" verticalScrollBarPolicy="fill" maximumHeight="450">
                     <TableView bxml:id="managementView">
                         <tableViewSortListeners>
@@ -57,8 +65,12 @@
                         <TableViewHeader tableView="$managementView" sortMode="multi_column"/>
                     </columnHeader>
                 </ScrollPane>
-            </Expander>
-            <Expander bxml:id="observedData" title="Observed Data" expanded="false" styles="{padding:6}">
+            </Rollup>
+            <Separator preferredWidth="600"/>
+            <Rollup bxml:id="observedData" expanded="false" styles="{padding:6}">
+                <heading>
+                    <Label text="Observed Data" styles="{font:{bold:true}, color:13}"/>
+                </heading>
                 <BoxPane orientation="vertical">
                     <ScrollPane horizontalScrollBarPolicy="fill" verticalScrollBarPolicy="fill">
                         <TableView bxml:id="observedSummaryView">
@@ -85,7 +97,7 @@
                         </ScrollPane>
                     </Border>
                 </BoxPane>
-            </Expander>
+            </Rollup>
         </BoxPane>
     </Border>
 </BoxPane>
