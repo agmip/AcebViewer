@@ -182,7 +182,10 @@ public class AcebViewerTreeView extends TreeView {
                 AceComponent c = (AceComponent) o;
                 String nodeName = "";
                 for (String branchPK : branchPKs) {
-                    nodeName += c.getValueOr(branchPK, "") + "-";
+                    String val = c.getValueOr(branchPK, "");
+                    if (!val.equals("")) {
+                        nodeName += val + "-";
+                    }
                 }
                 if (!nodeName.isEmpty()) {
                     nodeName = nodeName.substring(0, nodeName.length() - 1);
