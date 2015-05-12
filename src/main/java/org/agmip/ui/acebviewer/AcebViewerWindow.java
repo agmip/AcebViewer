@@ -4,19 +4,14 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
-import java.util.List;
 import java.util.Properties;
-import java.util.logging.Level;
 import java.util.prefs.Preferences;
-import org.agmip.ace.AceDataset;
 import org.apache.pivot.beans.Bindable;
-import org.apache.pivot.collections.ArrayList;
 import org.apache.pivot.collections.Map;
 import org.apache.pivot.serialization.SerializationException;
 import org.apache.pivot.util.Filter;
 import org.apache.pivot.util.Resources;
 import org.apache.pivot.util.concurrent.Task;
-import org.apache.pivot.util.concurrent.TaskExecutionException;
 import org.apache.pivot.util.concurrent.TaskListener;
 import org.apache.pivot.wtk.Action;
 import org.apache.pivot.wtk.ActivityIndicator;
@@ -34,10 +29,8 @@ import org.apache.pivot.wtk.ScrollPane;
 import org.apache.pivot.wtk.Sheet;
 import org.apache.pivot.wtk.SheetCloseListener;
 import org.apache.pivot.wtk.TaskAdapter;
-import org.apache.pivot.wtk.TextArea;
 import org.apache.pivot.wtk.TextInput;
 import org.apache.pivot.wtk.Window;
-import org.apache.pivot.wtk.content.TreeBranch;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -149,9 +142,6 @@ public class AcebViewerWindow extends Window implements Bindable {
         dataListBd.setContent(indicator);
         dataDetailBd.setContent(null);
 
-//        TextArea t = new TextArea();
-//        t.setText("123");
-//        dataListBd.setContent(t);
         ReadDataTask task = new ReadDataTask(dataFile, dataDetailBd);
         TaskListener<AcebViewerTreeView> listener = new TaskListener<AcebViewerTreeView>() {
 
