@@ -22,7 +22,7 @@
                 <heading>
                     <Label text="Daily Weather Data" styles="{font:{bold:true}, color:13}"/>
                 </heading>
-                <ScrollPane horizontalScrollBarPolicy="fill" verticalScrollBarPolicy="fill" maximumHeight="450">
+                <ScrollPane maximumHeight="450">
                     <TableView bxml:id="dailyWeatherView">
                         <tableViewSortListeners>
                             function sortChanged(tableView) {

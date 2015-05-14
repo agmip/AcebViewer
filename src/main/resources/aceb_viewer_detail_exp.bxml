@@ -29,7 +29,7 @@
                         </TableView>
                     </ScrollPane>
                     <Border title="Soil Layer" styles= "{padding:6}">
-                        <ScrollPane horizontalScrollBarPolicy="fill" verticalScrollBarPolicy="fill" maximumHeight="450">
+                        <ScrollPane maximumHeight="450">
                             <TableView bxml:id="icLayerDataView">
                                 <tableViewSortListeners>
                                     function sortChanged(tableView) {
@@ -51,7 +51,7 @@
                 <heading>
                     <Label text="Management Data" styles="{font:{bold:true}, color:13}"/>
                 </heading>
-                <ScrollPane horizontalScrollBarPolicy="fill" verticalScrollBarPolicy="fill" maximumHeight="450">
+                <ScrollPane maximumHeight="450">
                     <TableView bxml:id="managementView">
                         <tableViewSortListeners>
                             function sortChanged(tableView) {
@@ -81,7 +81,7 @@
                         </TableView>
                     </ScrollPane>
                     <Border title="Time Series" styles= "{padding:6}">
-                        <ScrollPane horizontalScrollBarPolicy="fill" verticalScrollBarPolicy="fill" maximumHeight="450">
+                        <ScrollPane maximumHeight="450">
                             <TableView bxml:id="observedTimeSeriView">
                                 <tableViewSortListeners>
                                     function sortChanged(tableView) {
