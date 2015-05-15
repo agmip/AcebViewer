@@ -12,8 +12,10 @@ import org.agmip.ace.AceExperiment;
 import org.agmip.ace.AceRecord;
 import org.agmip.ace.AceSoil;
 import org.agmip.ace.AceWeather;
+import org.agmip.ace.LookupCodes;
 import org.agmip.ace.util.AceFunctions;
 import org.agmip.common.Functions;
+import org.agmip.functions.ExperimentHelper;
 import static org.agmip.ui.acebviewer.AcebViewerTreeView.BranchType.Experiments;
 import static org.agmip.ui.acebviewer.AcebViewerTreeView.BranchType.Soils;
 import static org.agmip.ui.acebviewer.AcebViewerTreeView.BranchType.Weathers;
@@ -221,6 +223,10 @@ public class AcebViewerTreeView extends TreeView {
                     String val;
                     if (header.equals("wst_id") || header.equals("soil_id")) {
                         val = exp.getValueOr(header, "");
+                    } else if (header.equals("crid_text")) {
+                        val = getCridText(exp);
+                    } else if (header.equals("sltx_text")) {
+                        val = LookupCodes.lookupCode("SLTX", exp.getValueOr("sltx", ""), "soil_texture");
                     } else if (header.equals("ir_num")) {
                         val = "" + getEventCount(exp, AceEventType.ACE_IRRIGATION_EVENT);
                     }  else if (header.equals("ir_tot")) {
@@ -397,6 +403,24 @@ public class AcebViewerTreeView extends TreeView {
             key = key.replaceAll("%", "_pct");
         }
         return key;
+    }
+    
+    private String getCridText(AceExperiment exp) throws IOException {
+        String ret = "";
+        Iterator<AceEvent> it = exp.getEvents().iterator();
+        while (it.hasNext()) {
+            AceEvent event = it.next();
+            if (event.getEventType().equals(AceEventType.ACE_PLANTING_EVENT)) {
+                String cridTest = LookupCodes.lookupCode("CRID", event.getValueOr("crid", ""), "common");
+                if (ret.equals("")) {
+                    ret = cridTest;
+                } else {
+                    ret += "|" + cridTest;
+                }
+            }
+        }
+        
+        return ret;
     }
     
     private int getEventCount(AceExperiment exp, AceEventType type) {
